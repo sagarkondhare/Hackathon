@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "106390670965",
+    "project_id": "hackahon",
+    "storage_bucket": "hackahon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106390670965:android:c265d18421f2121893723c",
+        "android_client_info": {
+          "package_name": "com.sagark.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106390670965-tjf99kbp8eqsvsk14i3gev7b2ba6hbm8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sagark.hackathon",
+            "certificate_hash": "2cc734c3068eb7cd34589f7d110fbbfd00c49995"
+          }
+        },
+        {
+          "client_id": "106390670965-qv8h23k878ll8jn79uv4n5v6optbm2fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3kH7ba1UndWb8rG-FNaPiOAMSrYr00VE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106390670965-f0iuh1s74l6ac5ki0g6ujouft3j18ue6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
