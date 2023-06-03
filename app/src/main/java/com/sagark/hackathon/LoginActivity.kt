@@ -1,6 +1,7 @@
 package com.sagark.hackathon
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,6 +14,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.sagark.hackathon.models.User
 
 
 class LoginActivity : AppCompatActivity() {
@@ -59,6 +63,16 @@ class LoginActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account)
                 CommonMethods.saveStringPreferences(this, "user_id", account.id)
+                val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+                val userRef: DatabaseReference = database.getReference("users/" + account.id)
+                MyApplication.user = User(
+                    userName = account.displayName,
+                    userId = account.id,
+                    email = account.email,
+                    image = if (account.photoUrl != null) account.photoUrl.toString() else ""
+                )
+                userRef.setValue(MyApplication.user)
+
                 finish()
                 startActivity(Intent(this, MainActivity::class.java))
             } catch (e: ApiException) {
