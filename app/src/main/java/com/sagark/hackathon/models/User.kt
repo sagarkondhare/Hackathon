@@ -5,6 +5,6 @@ data class User(
     var userId: String? = "",
     var email: String? = "",
     var image: String? = "",
-    var isSearching: Boolean = false
-) {
-}
+    var isSearching: Boolean = false,
+    var score: Int? = 0
+)
