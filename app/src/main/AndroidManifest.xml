@@ -14,7 +14,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".PlayAudio"
+            android:name="com.sagark.hackathon.PlayAudio"
             android:exported="false" />
         <activity
             android:name=".AskQuestions"

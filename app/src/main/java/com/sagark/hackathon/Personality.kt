@@ -1,6 +1,6 @@
 package com.sagark.hackathon
 
-import PlayAudio
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,16 +23,21 @@ class Personality : AppCompatActivity() {
         btngoalsetting?.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, PlayAudio::class.java)
             intent.putExtra("filename", "goals_planning.mp3")
+            intent.putExtra("title","Goals Setting and Planning")
             startActivity(intent)
         })
         btnstress?.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, PlayAudio::class.java)
             intent.putExtra("filename", "stress_management.mp3")
+            intent.putExtra("title","Self Confidence")
+
             startActivity(intent)
         })
         btnconf?.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, PlayAudio::class.java)
             intent.putExtra("filename", "confidence.mp3")
+            intent.putExtra("title","Stress Management")
+
             startActivity(intent)
         })
 
