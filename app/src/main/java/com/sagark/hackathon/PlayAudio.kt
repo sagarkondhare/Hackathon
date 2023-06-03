@@ -1,46 +1,53 @@
-package com.sagark.hackathon
-
 import android.content.res.AssetFileDescriptor
 import android.media.AudioManager
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import com.sagark.hackathon.R
 import java.io.IOException
 
-class PlayAudio : AppCompatActivity() {
+class PlayAudio : AppCompatActivity(), MediaPlayer.OnPreparedListener {
     private var mediaPlayer: MediaPlayer? = null
+    private var playpause: ImageView? = null
+    private var playpauseflag = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_audio)
-        var fileName = intent.getStringExtra("fileName")
+
+        playpause = findViewById(R.id.buttonPlayPause)
+        val fileName = intent.getStringExtra("filename")
+
+        playpause?.setOnClickListener(View.OnClickListener {
+            if (playpauseflag) {
+                playpauseflag = false
+                mediaPlayer?.pause()
+                playpause?.setImageResource(R.drawable.pause)
+            } else {
+                mediaPlayer?.start()
+                playpauseflag = true
+                playpause?.setImageResource(R.drawable.play)
+            }
+        })
+
         // Initialize the MediaPlayer
         mediaPlayer = MediaPlayer()
         mediaPlayer?.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        mediaPlayer?.setOnPreparedListener(this)
 
         try {
             // Get the AssetFileDescriptor for the audio file
             val assetFileDescriptor: AssetFileDescriptor = assets.openFd(fileName!!)
-
-            // Set the data source for the MediaPlayer
-            mediaPlayer?.setDataSource(
-                assetFileDescriptor.fileDescriptor,
-                assetFileDescriptor.startOffset,
-                assetFileDescriptor.length
-            )
+            mediaPlayer?.setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.length)
 
             // Prepare the MediaPlayer asynchronously
             mediaPlayer?.prepareAsync()
-
-            // Set a completion listener to release the MediaPlayer resources when playback is complete
-            mediaPlayer?.setOnCompletionListener {
-                mediaPlayer?.release()
-            }
+            assetFileDescriptor.close()
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
-        // Start playing the audio file
-        mediaPlayer?.start()
     }
 
     override fun onDestroy() {
@@ -51,4 +58,9 @@ class PlayAudio : AppCompatActivity() {
         mediaPlayer = null
     }
 
+    override fun onPrepared(mp: MediaPlayer?) {
+        // Start playing the audio file
+        playpause?.setImageResource(R.drawable.pause)
+        mediaPlayer?.start()
+    }
 }
