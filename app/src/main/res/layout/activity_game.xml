@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/game_bg"
     tools:context=".GameActivity">
 
     <RelativeLayout
         android:id="@+id/lytSearch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="20dp">
 
         <TextView
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/click_below_to_search_for_buddy_to_play"
@@ -42,10 +45,19 @@
     <LinearLayout
         android:id="@+id/lytGame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:orientation="vertical"
         android:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lieIco"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_url="https://appcdn.goqii.com/storeimg/94978_1685853360.json" />
 
         <TextView
             android:layout_width="match_parent"
@@ -113,4 +125,26 @@
             android:textSize="20sp" />
 
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animWon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_url="https://appcdn.goqii.com/storeimg/73308_1685850426.json" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animLost"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_url="https://appcdn.goqii.com/storeimg/32978_1685851183.json" />
+
+
 </RelativeLayout>

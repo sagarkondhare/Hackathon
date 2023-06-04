@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">m-Learn</string>
     <string name="learning_express">Learning Express</string>
-    <string name="fun_express">Fun Express</string>
+    <string name="fun_express">Connect Express</string>
     <string name="your_web_client_id">106390670965-qv8h23k878ll8jn79uv4n5v6optbm2fd.apps.googleusercontent.com</string>
     <string name="personality">Personality</string>
     <string name="goalsetting">Goal Setting and Planning</string>
@@ -12,8 +12,9 @@
     <string name="stress_management">Stress Management</string>
 
     <string name="any_other_topic">Any Other Topic</string>
-    <string name="input_your_questions">Input your questions and select a lie</string>
-    <string name="click_below_to_search_for_buddy_to_play">Click below to search for buddy to play</string>
-    <string name="catch_a_lie">Catch the Lie</string>
+    <string name="input_your_questions">Input your statements and select the lie</string>
+    <string name="click_below_to_search_for_buddy_to_play">Click below to search for buddy to play with</string>
+    <string name="catch_a_lie">Catch the lie</string>
     <string name="submit">Submit</string>
+    <string name="search">Search</string>
 </resources>

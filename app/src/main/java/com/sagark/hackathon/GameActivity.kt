@@ -2,6 +2,7 @@ package com.sagark.hackathon
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -31,6 +32,8 @@ class GameActivity : AppCompatActivity() {
     lateinit var radio2: RadioButton
     lateinit var radio3: RadioButton
     var selectedIndex = -1
+    var won = "https://appcdn.goqii.com/storeimg/73308_1685850426.json"
+    var loose = "https://appcdn.goqii.com/storeimg/36284_1685850478.json"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
@@ -40,9 +43,10 @@ class GameActivity : AppCompatActivity() {
             .equalTo(true)
         btnSearch = findViewById(R.id.btnSearch)
         animSearching = findViewById(R.id.animSearching)
-        btnSearch.setOnClickListener {
-            showSearchingUI()
-        }
+        showSearchingUI()
+//        btnSearch.setOnClickListener {
+//            showSearchingUI()
+//        }
     }
 
     fun showSearchingUI() {
@@ -105,11 +109,19 @@ class GameActivity : AppCompatActivity() {
             if (selectedIndex == -1) {
                 CommonMethods.shortToast(this, "Select Lie")
             } else {
+                findViewById<View>(R.id.lytGame).visibility = View.GONE
                 if (selectedIndex == user.questions?.lie) {
                     CommonMethods.shortToast(this, "Congratulations")
+                    findViewById<View>(R.id.animWon).visibility = View.VISIBLE
                 } else {
+                    findViewById<View>(R.id.animLost).visibility = View.VISIBLE
                     CommonMethods.shortToast(this, "Wrong answer")
                 }
+                Handler().postDelayed(Runnable {
+                    runOnUiThread(Runnable {
+                        finish()
+                    })
+                }, 3000)
             }
         }
     }

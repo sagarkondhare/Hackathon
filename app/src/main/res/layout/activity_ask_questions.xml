@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/statements_bg"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".AskQuestions">
@@ -28,7 +30,7 @@
             android:id="@+id/question1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Question 1" />
+            android:hint="Statement 1" />
     </LinearLayout>
 
     <LinearLayout
@@ -45,7 +47,7 @@
             android:id="@+id/question2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Question 2" />
+            android:hint="Statement 2" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,7 +64,7 @@
             android:id="@+id/question3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Question 3" />
+            android:hint="Statement 3" />
     </LinearLayout>
 
     <Button
@@ -70,8 +72,9 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
-        android:text="@string/submit"
+        android:text="@string/search"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
