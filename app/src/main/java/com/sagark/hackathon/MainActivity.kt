@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.funExpress).setOnClickListener {
-            startActivity(Intent(this, GameActivity::class.java))
+            startActivity(Intent(this, AskQuestions::class.java))
         }
     }
 }

@@ -2,6 +2,7 @@ package com.sagark.hackathon
 
 import android.app.Application
 import com.google.firebase.FirebaseApp
+import com.sagark.hackathon.models.Questions
 import com.sagark.hackathon.models.User
 
 class MyApplication : Application() {
@@ -14,5 +15,6 @@ class MyApplication : Application() {
 
     companion object {
         var user: User? = null
+        var questions: Questions? = null
     }
 }

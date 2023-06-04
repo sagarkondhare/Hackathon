@@ -8,5 +8,6 @@ data class User(
     var searching: Boolean = false,
     var score: Int? = 0,
     var playing: Boolean = false,
-    var gameNode: String = ""
+    var gameNode: String = "",
+    var questions: Questions? = null
 )
