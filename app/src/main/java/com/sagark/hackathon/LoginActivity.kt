@@ -30,6 +30,12 @@ class LoginActivity : AppCompatActivity() {
 
         val account = GoogleSignIn.getLastSignedInAccount(this)
         if (account != null) {
+            MyApplication.user = User(
+                userName = account.displayName,
+                userId = account.id,
+                email = account.email,
+                image = if (account.photoUrl != null) account.photoUrl.toString() else ""
+            )
             finish()
             startActivity(Intent(this, MainActivity::class.java))
         } else {

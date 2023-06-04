@@ -5,6 +5,8 @@ data class User(
     var userId: String? = "",
     var email: String? = "",
     var image: String? = "",
-    var isSearching: Boolean = false,
-    var score: Int? = 0
+    var searching: Boolean = false,
+    var score: Int? = 0,
+    var playing: Boolean = false,
+    var gameNode: String = ""
 )
