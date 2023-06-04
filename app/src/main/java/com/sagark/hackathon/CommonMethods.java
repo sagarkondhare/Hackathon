@@ -3,6 +3,8 @@ package com.sagark.hackathon;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -127,5 +129,14 @@ public class CommonMethods {
 
     private static void printStackTrace(Exception e) {
         e.printStackTrace();
+    }
+
+    public static void shortToast(Context context, String message) {
+        try {
+            if (!TextUtils.isEmpty(message))
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            printStackTrace(e);
+        }
     }
 }
