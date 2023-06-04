@@ -12,7 +12,8 @@
     <string name="stress_management">Stress Management</string>
 
     <string name="any_other_topic">Any Other Topic</string>
-    <string name="input_your_questions">Input your questions</string>
+    <string name="input_your_questions">Input your questions and select a lie</string>
     <string name="click_below_to_search_for_buddy_to_play">Click below to search for buddy to play</string>
-    <string name="catch_a_lie">Catch a Lie</string>
+    <string name="catch_a_lie">Catch the Lie</string>
+    <string name="submit">Submit</string>
 </resources>
